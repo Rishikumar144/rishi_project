@@ -1,11 +1,10 @@
 """
 RideCare Backend - Main Application Entry Point
-FastAPI application for vehicle maintenance tracking system
 """
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.database import engine, Base
-from app.routes import vehicles, services
+from routes import vehicles, services
 
 # Create database tables
 Base.metadata.create_all(bind=engine)
@@ -17,10 +16,10 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# Configure CORS for frontend communication
+# Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Restrict in production
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
