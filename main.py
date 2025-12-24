@@ -4,7 +4,7 @@ RideCare Backend - Main Application Entry Point
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.database import engine, Base
-from routes import vehicles, services
+from app.routes import vehicles, services
 
 # Create database tables
 Base.metadata.create_all(bind=engine)
